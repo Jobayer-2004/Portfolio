@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="logo.png">
+    <title>Jobayer Ashrafi | Integrated Systems Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-navy: #020617;
+            --accent-cyan: #22d3ee;
+            --glass-bg: rgba(15, 23, 42, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--bg-navy);
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(34, 211, 238, 0.08) 0%, transparent 30%),
+                radial-gradient(circle at 90% 90%, rgba(99, 102, 241, 0.08) 0%, transparent 30%);
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        .heading-font { font-family: 'Space Grotesk', sans-serif; }
+
+        .bento-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(34, 211, 238, 0.4);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #22d3ee 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .circuit-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%231e293b' stroke-width='0.5'%3E%3Cpath d='M30 30V0M0 30h30M0 0h60v60H0V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.2;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .video-container {
+            width: 85vw;
+            max-width: 320px;
+            aspect-ratio: 9/16;
+            border-radius: 24px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(2, 6, 23, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .hero-text { font-size: 2.75rem !important; line-height: 1.1; }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div class="circuit-bg"></div>
+
+    <a href="https://wa.me/8801403949823" target="_blank"
+        class="fixed bottom-6 right-6 z-[200] bg-[#25D366] p-4 rounded-2xl shadow-2xl hover:scale-110 transition-all active:scale-95">
+        <i data-lucide="message-circle" class="text-white w-6 h-6"></i>
+    </a>
+
+    <div id="videoModal" class="hidden fixed inset-0 z-[300] bg-black/95 flex flex-col items-center justify-center p-4 backdrop-blur-md">
+        <div class="relative flex flex-col items-center">
+            <button onclick="closeModal()" class="absolute -top-14 right-0 bg-white text-black p-3 rounded-full shadow-2xl hover:bg-cyan-400 transition-colors z-[310]">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <div class="video-container overflow-hidden border-2 border-white/20">
+                <video id="resumeVideo" controls class="w-full h-full object-cover">
+                    <source id="videoSource" src="" type="video/mp4">
+                </video>
+            </div>
+            
+            <button onclick="closeModal()" class="mt-6 px-8 py-3 bg-white/10 border border-white/20 rounded-xl text-white font-bold tracking-widest text-xs hover:bg-white hover:text-black transition">
+                TAP TO CLOSE
+            </button>
+        </div>
+    </div>
+
+    <nav class="fixed top-4 left-0 w-full z-[100] px-4">
+        <div class="max-w-4xl mx-auto nav-blur border border-white/10 rounded-3xl px-6 py-3 flex justify-between items-center shadow-2xl">
+            <div class="flex items-center gap-3">
+                <img src="logo.png" class="w-8 h-8 rounded-lg border border-cyan-500/50">
+                <span class="heading-font font-bold tracking-tighter text-white text-sm">Jobayer_Monim</span>
+            </div>
+            <div class="hidden md:flex items-center gap-6 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                <a href="#about" class="hover:text-cyan-400 transition">About</a>
+                <a href="#projects" class="hover:text-cyan-400 transition">Stack</a>
+                <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+            </div>
+            <a href="https://wa.me/8801403949823" class="bg-cyan-500 text-slate-950 px-4 py-2 rounded-xl text-[10px] font-black tracking-wider hover:bg-white transition">HIRE</a>
+        </div>
+    </nav>
+
+    <section id="about" class="pt-32 pb-16 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-3 gap-6">
+            
+            <div class="lg:col-span-2 bento-card p-8 md:p-14 flex flex-col justify-center relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 opacity-[0.03] rotate-12">
+                    <i data-lucide="cpu" class="w-64 h-64 text-white"></i>
+                </div>
+                
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+                    <h4 class="text-cyan-400 font-bold tracking-[0.2em] text-[10px] uppercase">Junior Manager @ Droidco.co</h4>
+                </div>
+
+                <h1 class="heading-font hero-text text-4xl sm:text-5xl md:text-7xl font-bold mb-6 tracking-tight whitespace-nowrap">
+                    Jobayer <span class="gradient-text">Ashrafi</span>
+                </h1>
+                
+                <p class="text-base md:text-lg text-slate-400 max-w-xl mb-10 leading-relaxed">
+                    Integrated systems architect bridging the gap between <span class="text-white font-medium">high-performance silicon</span> and <span class="text-white font-medium">elegant code logic</span>.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="openModal('VID_20250407_192813_216.mp4')" 
+                        class="bg-white text-slate-950 px-8 py-4 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-cyan-400 transition-all">
+                        <i data-lucide="play" class="fill-current w-5 h-5"></i> VIDEO RESUME
+                    </button>
+                    <a href="cc_Jobayers CV(1)_merged-2.pdf" target="_blank"
+                        class="bg-slate-800/50 backdrop-blur text-white px-8 py-4 rounded-2xl font-bold flex items-center justify-center gap-3 border border-white/10 hover:bg-slate-700 transition">
+                        <i data-lucide="eye" class="w-5 h-5"></i> VIEW CV
+                    </a>
+                </div>
+            </div>
+
+            <div class="bento-card h-[400px] lg:h-auto">
+                <img src="profile.jpeg" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="pb-24 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="md:col-span-2 bento-card p-8 group">
+                <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-6 group-hover:bg-cyan-500 transition-colors">
+                    <i data-lucide="code-2" class="text-cyan-400 group-hover:text-black"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 heading-font">C/C++ Engineering</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Mastering memory management, low-latency data structures, and the firmware backbone of modern integrated hardware.</p>
+            </div>
+
+            <div class="bento-card p-8 group">
+                <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:bg-indigo-500 transition-colors">
+                    <i data-lucide="layers" class="text-indigo-400 group-hover:text-white"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2 heading-font">PCB Design</h3>
+                <p class="text-slate-400 text-xs">Architecting circuits and CAD enclosures for physical deployment.</p>
+            </div>
+
+            <div class="bento-card p-8 group">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:bg-emerald-500 transition-colors">
+                    <i data-lucide="microchip" class="text-emerald-400 group-hover:text-white"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2 heading-font">Embedded</h3>
+                <p class="text-slate-400 text-xs">Real-time ESP32 engines and sensor communication protocols.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="px-6 pb-12 max-w-7xl mx-auto">
+        <div class="bento-card p-8 md:p-12 border-t-2 border-cyan-500/30">
+            <div class="flex flex-col lg:flex-row justify-between gap-12">
+                <div class="max-w-md">
+                    <h2 class="heading-font text-4xl font-bold mb-6">Let's build the <span class="text-cyan-400">future</span>.</h2>
+                    <div class="space-y-4">
+                        <a href="mailto:jubayermonim@gmail.com" class="flex items-center gap-4 text-slate-300 hover:text-cyan-400 transition">
+                            <i data-lucide="mail" class="w-5 h-5"></i> jubayermonim@gmail.com
+                        </a>
+                        <a href="tel:+8801403949823" class="flex items-center gap-4 text-slate-300 hover:text-cyan-400 transition">
+                            <i data-lucide="phone" class="w-5 h-5"></i> +880 1403949823
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3">
+                    <a href="https://github.com/Jobayer-2004" target="_blank" class="p-5 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                        <i data-lucide="github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jubayer-monim-a6b92438b" target="_blank" class="p-5 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center hover:bg-[#0077b5] transition-all">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/16hsWEkKfJ/" target="_blank" class="p-5 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center hover:bg-[#1877f2] transition-all">
+                        <i data-lucide="facebook"></i>
+                    </a>
+                    <a href="https://t.me/+8801403949823" target="_blank"
+                        class="p-5 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center hover:bg-[#229ED9] transition-all group">
+                        <i data-lucide="send" class="group-hover:scale-110 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-white/5 text-center md:text-left">
+                <p class="text-[10px] font-bold tracking-[0.3em] text-slate-600 uppercase">
+                    © 2026 / Jobayer Ashrafi Monim / Integrated by Design
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function openModal(src) {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('resumeVideo');
+            video.src = src;
+            modal.classList.remove('hidden');
+            video.play();
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('resumeVideo');
+            modal.classList.add('hidden');
+            video.pause();
+            video.src = "";
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on clicking outside video container
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+    </script>
+</body>
+
+</html>
